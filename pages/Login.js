@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput } from 'react-native';
 import GeneralStyles from './GeneralStyles';
 
-export default function Login() {
+export default function Login({ navigation }) {
   return (
     <View style={GeneralStyles.backDrop}>
       <View>
@@ -21,11 +21,23 @@ export default function Login() {
           <TextInput secureTextEntry={true} style={GeneralStyles.inputBox}></TextInput>
         </View>
 
-        <TouchableOpacity style={[GeneralStyles.primaryButton, {
-          width: 100,
-          height: 60,
-          alignSelf: 'flex-end'
-        }]}><Text style={{color: 'white', fontSize:17}}>Login</Text></TouchableOpacity>
+        <View style={{flexDirection: 'row', direction: 'rtl', justifyContent: 'space-between'}}>
+          <TouchableOpacity style={[GeneralStyles.primaryButton, {
+            width: 200,
+            height: 60
+          }]}
+            onPress={() => navigation.navigate("Landing Page")}>
+            <Text style={{color: 'white', fontSize:17}}>Login</Text></TouchableOpacity>
+
+          <TouchableOpacity style={[GeneralStyles.secondaryButton, {
+            width: 100,
+            height: 60
+          }]}
+            onPress={() => navigation.navigate('Home')}>
+              <Text style={{color: 'white', fontSize:17}}>Back</Text></TouchableOpacity>
+
+        </View>
+
 
       </View>
     </View>

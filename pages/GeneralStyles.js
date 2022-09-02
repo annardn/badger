@@ -13,6 +13,14 @@ export default StyleSheet.create({
     borderRadius: 20,
     justifyContent: "center",
     alignItems: "center"
+}, 
+  secondaryButton: {
+    backgroundColor: '#a89292',
+    padding: 20,
+    margin: 20,
+    borderRadius: 20,
+    justifyContent: "center",
+    alignItems: "center"
 },
   inputBox: {
     marginTop: 10,
