@@ -4,7 +4,6 @@ export default StyleSheet.create({
   backDrop: {
     backgroundColor: '#FCF5EF',
     alignItems: 'center',
-    // justifyContent: 'center',
     flex: 1
   },
   primaryButton: {
@@ -15,13 +14,12 @@ export default StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
 },
-
   inputBox: {
     marginTop: 10,
     backgroundColor: 'white',
-    height: 40,
+    height: 50,
     borderRadius: 20,
-    padding: 20,
+    padding: 10,
     fontSize: 15
   }
 })
