@@ -1,30 +1,30 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import GeneralStyles from './GeneralStyles';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
     return (
-        <View className='w-100 fl' style={styles.backDrop}>
+        <View style={GeneralStyles.backDrop}>
             <Image source={require('./logo-pink.png')} style={styles.logo}/>
             <View style={styles.banner}>
                 <Text style={styles.subtitle}>Stay connected.</Text>
             </View>
-            <TouchableOpacity style={styles.primaryButton} title='SignUp'>
+            <TouchableOpacity style={GeneralStyles.primaryButton} title='SignUp'
+                onPress={() => navigation.navigate('Signup')}>
                 <Text style={{color: 'white', fontSize: 15}}>Create an account</Text>
             </TouchableOpacity>
-            <Text style={{textDecorationLine: true}}>Already have an account? Login</Text>
+            <Text onPress={() => navigation.navigate('Login')} style={{textDecorationLine: true}}>Already have an account? Login</Text>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
-    backDrop: {
-        backgroundColor: '#FCF5EF',
-        alignItems: 'center',
-        flex: 1
-    },
     logo: {
-        width: 400,
-        height: 400
+        width: 350,
+        height: 350,
+        margin: 20
     },
     banner: {
         backgroundColor: '#B7245C',
@@ -36,11 +36,5 @@ const styles = StyleSheet.create({
     subtitle: {
         color: 'white',
         fontSize: 30
-    },
-    primaryButton: {
-        backgroundColor: '#7C3238',
-        padding: 20,
-        margin: 20,
-        borderRadius: 20,
     }
 });
