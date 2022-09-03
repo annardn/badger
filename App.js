@@ -9,6 +9,8 @@ import LandingPage from './pages/LandingPage';
 
 
 import { createBottomTabNavigator, BottomTabBar } from '@react-navigation/bottom-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Profile from './pages/Profile';
 
 
 export default function App() {
@@ -23,7 +25,7 @@ export default function App() {
       // Hiding specifics tabs
       // From https://github.com/react-navigation/react-navigation/issues/5230
       // Could possibly change later if fix is found
-      
+
             screenOptions={({ route }) => ({
               tabBarButton: [
                 "Home",
@@ -34,7 +36,28 @@ export default function App() {
                     return null;
                   }
                 : undefined,
-            })}
+
+                tabBarIcon: ({ focused, color, size }) => {
+                  let iconName;
+
+                  if (route.name === 'Landing Page') {
+                    iconName = focused
+                      ? 'ios-home'
+                      : 'ios-home-outline';
+                  } 
+                  else if (route.name === 'Profile') {
+                    iconName = focused 
+                      ? 'ios-person-circle' 
+                      : 'ios-person-circle-outline';
+                  }
+
+                  return <Ionicons name={iconName} size={size*1.5} color={color} />;
+                },
+                tabBarActiveTintColor: '#B7245C',
+                tabBarInactiveTintColor: 'gray',
+                tabBarShowLabel: false
+              }
+            )}
           >
         <Tab.Screen name="Home" component={HomeScreen} 
           options={{
@@ -48,7 +71,8 @@ export default function App() {
           options={{
             tabBarStyle: { display: "none" }
           }}/>
-        <Tab.Screen name="Landing Page" component={LandingPage} />
+        <Tab.Screen name="Landing Page" component={LandingPage}/>
+        <Tab.Screen name="Profile" component={Profile} />
       </Tab.Navigator>
 
     </NavigationContainer>
