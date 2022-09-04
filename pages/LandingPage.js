@@ -8,6 +8,7 @@ import Profile from './Profile';
 
 
 import DatePicker from 'react-native-date-picker'
+import { auth } from '../firebase';
 
 const Tab = createBottomTabNavigator();
 
@@ -26,7 +27,7 @@ export default function LandingPage({ navigation }) {
         
         <View style={{justifyContent: 'center', margin: 20}}>
           <Text style={{fontSize: 30}}>Welcome,</Text>
-          <Text style={{textDecorationLine: true, fontSize: 30}}>User!</Text>
+          <Text style={{textDecorationLine: true, fontSize: 30}}>{auth.currentUser?.displayName}!</Text>
         </View>
 
       </View>
